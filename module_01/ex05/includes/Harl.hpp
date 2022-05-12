@@ -6,12 +6,12 @@
 class Harl
 {
 private:
+    typedef void (Harl::*functionTab) ( void );
     void debug( void );
     void info( void );
     void warning( void );
     void error( void );
 
-    void* level[4] = 
 public:
     Harl(/* args */);
     ~Harl();
