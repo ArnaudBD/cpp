@@ -6,7 +6,6 @@
 class Harl
 {
 private:
-    typedef void (Harl::*functionTab) ( void );
     void debug( void );
     void info( void );
     void warning( void );

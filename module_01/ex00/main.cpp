@@ -10,7 +10,7 @@ int main()
 	Zombie*	zombie_ptr;
 
 	randomChump("Crocodile");
-	std::cout << "Random Chump is now destroyed" << std::endl;
+	std::cout << "Random Chump (Crocodile) is now destroyed" << std::endl;
 	zombie_ptr = newZombie("Aligator");
 	std::cout << "Lets the new Zombie annouce himself so we can see his name" << std::endl;
 	zombie_ptr->announce();
