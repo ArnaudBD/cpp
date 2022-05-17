@@ -65,13 +65,3 @@ Fixed & Fixed::operator=( Fixed const & inst )
 
 	return *this;
 }
-
-Fixed Fixed::operator+( Fixed const & inst ) const
-{
-	return Fixed(this->_RawBits + inst.getRawBits());
-}
-
-Fixed Fixed::operator-( Fixed const & inst ) const
-{
-	return Fixed(this->_RawBits - inst.getRawBits());
-}

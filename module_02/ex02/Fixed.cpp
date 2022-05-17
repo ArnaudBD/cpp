@@ -66,3 +66,90 @@ std::ostream & operator<<(std::ostream & o, Fixed const & rhs )
 	o << rhs.toFloat();
 	return (o);
 }
+
+Fixed Fixed::operator+( Fixed const & inst ) const
+{
+	Fixed res;
+	res.setRawBits(this->getRawBits() + inst.getRawBits());
+	return res;
+}
+
+Fixed Fixed::operator-( Fixed const & inst ) const
+{
+	Fixed res;
+	res.setRawBits(this->getRawBits() - inst.getRawBits());
+	return res;
+}
+
+Fixed Fixed::operator*( Fixed const & inst ) const
+{
+	Fixed res(this->toFloat() * inst.toFloat());
+	return res;
+}
+
+Fixed Fixed::operator/( Fixed const & inst ) const
+{
+	if (inst.toFloat())
+	{	
+		// res.setRawBits(this->getRawBits() / inst.getRawBits());
+		Fixed res(this->toFloat() / inst.toFloat());
+		return res;
+	}
+	std::cout << "Error: you can't divide by zero!" << std::endl;
+	Fixed res(INFINITY);
+	return (res);
+}
+
+bool Fixed::operator==( Fixed const & inst) const
+{
+	if (this->getRawBits() == inst.getRawBits())
+		return (1);
+	return (0);
+}
+
+bool Fixed::operator>( Fixed const & inst) const
+{
+	if (this->getRawBits() > inst.getRawBits())
+		return (1);
+	return (0);
+}
+
+bool Fixed::operator>=( Fixed const & inst) const
+{
+	if (this->getRawBits() == inst.getRawBits())
+		return (1);
+	return (0);
+}
+
+bool Fixed::operator<=( Fixed const & inst) const
+{
+	if (this->getRawBits() <= inst.getRawBits())
+		return (1);
+	return (0);
+}
+
+bool Fixed::operator<( Fixed const & inst) const
+{
+	if (this->getRawBits() < inst.getRawBits())
+		return (1);
+	return (0);
+}
+
+bool Fixed::operator!=( Fixed const & inst) const
+{
+	if (this->getRawBits() != inst.getRawBits())
+		return (1);
+	return (0);
+}
+
+Fixed & Fixed::operator++( void )
+{
+	int res;
+	// std::cout << "_RawBits++ == " << _RawBits++ << std::endl;
+	// std::cout << "_RawBits == " << _RawBits << std::endl; 
+	res = this->getRawBits();
+	res++;
+
+	this->setRawBits(res);
+	return *this;
+}

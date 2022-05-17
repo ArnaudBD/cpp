@@ -28,6 +28,8 @@ public:
 	bool operator<( Fixed const & ) const;
 	bool operator!=( Fixed const & ) const;
 
+	Fixed & operator++();		//prefix
+	Fixed operator++( int );	//postfix
 
 	int getRawBits( void ) const;
 	void setRawBits( int const );
