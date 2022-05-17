@@ -16,10 +16,10 @@ public:
 	Fixed( float const );
 	Fixed( Fixed const & );
 	Fixed & operator=( Fixed const & );
-	Fixed & operator+( Fixed const & ) const;
-	Fixed & operator-( Fixed const & ) const;
-	Fixed & operator*( Fixed const & ) const;
-	Fixed & operator/( Fixed const & ) const;
+	Fixed operator+( Fixed const & ) const;
+	Fixed operator-( Fixed const & ) const;
+	Fixed operator*( Fixed const & ) const;
+	Fixed operator/( Fixed const & ) const;
 
 	bool operator==( Fixed const & ) const;
 	bool operator>( Fixed const & ) const;
