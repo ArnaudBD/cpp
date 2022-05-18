@@ -2,26 +2,22 @@
 
 Fixed::Fixed( int const RawBits )
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_RawBits = RawBits << this->_decimalBits;
 	return ;
 }
 
 Fixed::Fixed( float const RawBits )
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_RawBits = roundf(RawBits * pow(2, this->_decimalBits));
 }
 
 
 Fixed::Fixed() : _RawBits(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits( void ) const
@@ -31,14 +27,12 @@ int Fixed::getRawBits( void ) const
 
 void Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawbits called" << std::endl;
 	this->_RawBits = raw;
 	return ;
 }
 
 Fixed::Fixed( Fixed const & copy )
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 	return ;
 }
@@ -55,7 +49,6 @@ int Fixed::toInt( void ) const
 
 Fixed & Fixed::operator=( Fixed const & inst )
 {
-	std::cout << "Copy asignement operator called" << std::endl;
 	this->_RawBits = inst.getRawBits();
 
 	return *this;
@@ -144,12 +137,34 @@ bool Fixed::operator!=( Fixed const & inst) const
 
 Fixed & Fixed::operator++( void )
 {
-	int res;
-	// std::cout << "_RawBits++ == " << _RawBits++ << std::endl;
-	// std::cout << "_RawBits == " << _RawBits << std::endl; 
-	res = this->getRawBits();
-	res++;
-
-	this->setRawBits(res);
+	// this->_RawBits = _RawBits + (1 << _decimalBits);
+	this->setRawBits(this->_RawBits + 1);
 	return *this;
+}
+
+Fixed Fixed::operator++( int )
+{
+	Fixed old(this->toFloat());
+	// this->_RawBits = _RawBits + (1 << _decimalBits);
+	this->setRawBits(this->_RawBits + 1);
+	return (old);
+}
+
+Fixed const & Fixed::min(Fixed const & former, Fixed const & latter)
+{
+	return ((former < latter) ? former : latter);
+}
+Fixed & Fixed::min(Fixed & former, Fixed & latter)
+{
+	return ((former < latter) ? former : latter);
+}
+
+Fixed & Fixed::max(Fixed & former, Fixed & latter)
+{
+	return ((former > latter) ? former : latter);
+}
+
+Fixed const & Fixed::max(Fixed const & former, Fixed const & latter)
+{
+	return ((former > latter) ? former : latter);
 }

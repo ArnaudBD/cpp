@@ -36,6 +36,11 @@ public:
 
 	float toFloat( void ) const;
 	int toInt( void ) const;
+
+	Fixed static & min(Fixed &, Fixed &);
+	Fixed static & max(Fixed &, Fixed &);
+	Fixed const static & min(Fixed const &, Fixed const &);
+	Fixed const static & max(Fixed const &, Fixed const &);
 };
 
 std::ostream & operator<<(std::ostream & o, Fixed const & );
