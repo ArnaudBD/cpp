@@ -2,6 +2,7 @@
 
 int main()
 {
+	ClapTrap player0;
 	ClapTrap player1("player1");
 	ClapTrap player2("player2");
 

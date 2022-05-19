@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap( std::string name ) : _name( name )
 {
-	std::cout << "Constructor called for " << _name << std::endl;
+	std::cout << "ClapTrap constructor called for " << _name << std::endl;
 	_hitPoints = 10;
 	std::cout << "\t- Hit pts:\t\t" << _hitPoints << std::endl;
 	_energyPoints = 10;
@@ -13,7 +13,7 @@ ClapTrap::ClapTrap( std::string name ) : _name( name )
 
 ClapTrap::ClapTrap( void ) : _name( "No Name" )
 {
-	std::cout << "Constructor called for " << _name << std::endl;
+	std::cout << "ClapTrap constructor called for " << _name << std::endl;
 	_hitPoints = 10;
 	std::cout << "\t- Hit pts:\t\t" << _hitPoints << std::endl;
 	_energyPoints = 10;
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap( void ) : _name( "No Name" )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called for " << _name << std::endl;
 }
 
 void ClapTrap::attack( const std::string & name )
@@ -40,6 +40,15 @@ void ClapTrap::attack( const std::string & name )
 	{
 		std::cout << this->_name << " cannot attack without energy points!" << std::endl;
 	}
+}
+
+ClapTrap & ClapTrap::operator=( ClapTrap const & inst)
+{
+	this->_name = inst._name;
+	this->_hitPoints = inst._hitPoints;
+	this->_energyPoints = inst._energyPoints;
+	this->_attackDamage = inst._attackDamage;
+	return *this;
 }
 
 void ClapTrap::takeDamage( unsigned int amount )
@@ -73,4 +82,9 @@ void ClapTrap::setAttackDamage( unsigned int amount )
 {
 	this->_attackDamage += amount;
 	std::cout << this->_name << " attack damage points: " << this->_attackDamage << std::endl;
+}
+
+std::string & ClapTrap::getName()
+{
+	return (this->_name);
 }
