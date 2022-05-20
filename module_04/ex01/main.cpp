@@ -16,6 +16,11 @@ std::cout << i->getType() << " " << std::endl;
 i->makeSound(); //will output the cat sound!
 j->makeSound();
 meta->makeSound();
+delete i;
+delete j;
+delete meta;
+
+std::cout << "--------------------" << std::endl;
 
 const WrongAnimal* meta2 = new WrongAnimal();
 const WrongAnimal* wd = new WrongDog();
@@ -25,10 +30,6 @@ std::cout << wc->getType() << " " << std::endl;
 wc->makeSound(); //will not output the cat sound!
 wd->makeSound();
 meta2->makeSound();
-
-delete i;
-delete j;
-delete meta;
 delete wd;
 delete wc;
 delete meta2;

@@ -2,10 +2,12 @@
 WrongDog::WrongDog()
 {
 	this->_type = "WrongDog";
+	std::cout << "Constructor called for " << this->_type << std::endl;
 }
 
 WrongDog::~WrongDog()
 {
+	std::cout << "Destructor called for " << this->_type << std::endl;
 }
 
 WrongDog::WrongDog( WrongDog const & copy )

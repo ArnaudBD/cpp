@@ -3,10 +3,12 @@
 Animal::Animal()
 {
 	_type = "";
+	std::cout << "Constructor called for Animal" << std::endl; 
 }
 
 Animal::~Animal()
 {
+	std::cout << "Destructor called for Animal" << std::endl;
 }
 
 Animal::Animal( Animal const & copy )

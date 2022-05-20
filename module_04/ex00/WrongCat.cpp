@@ -2,10 +2,12 @@
 WrongCat::WrongCat()
 {
 	this->_type = "WrongCat";
+	std::cout << "Constructor called for " << this->_type << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
+	std::cout << "Destructor called for " << this->_type << std::endl; 
 }
 
 WrongCat::WrongCat( WrongCat const & copy )

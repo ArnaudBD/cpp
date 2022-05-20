@@ -3,10 +3,12 @@
 WrongAnimal::WrongAnimal()
 {
 	_type = "";
+	std::cout << "Constructor called for WrongAnimal" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
+	std::cout << "Destructor called for WrongAnimal" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( WrongAnimal const & copy )

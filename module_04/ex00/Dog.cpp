@@ -2,10 +2,12 @@
 Dog::Dog()
 {
 	this->_type = "Dog";
+	std::cout << "Constructor called for " << this->_type << std::endl; 
 }
 
 Dog::~Dog()
 {
+	std::cout << "Destructor called for " << this->_type << std::endl; 
 }
 
 Dog::Dog( Dog const & copy )

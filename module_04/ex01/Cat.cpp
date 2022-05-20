@@ -2,10 +2,12 @@
 Cat::Cat()
 {
 	this->_type = "Cat";
+	std::cout << "Constructor called for " << this->_type << std::endl; 
 }
 
 Cat::~Cat()
 {
+	std::cout << "Destructor called for " << this->_type << std::endl; 
 }
 
 Cat::Cat( Cat const & copy )
