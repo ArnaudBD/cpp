@@ -1,10 +1,11 @@
 NAME 	= CPP_03_EX02
 SRCS 	= 	main.cpp \
 			Animal.cpp \
-			Cat.cpp \ 
+			Cat.cpp \
 			Dog.cpp \
 			WrongAnimal.cpp \
-			WrongCat.cpp
+			WrongCat.cpp \
+			WrongDog.cpp
 OBJS 	= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 OBJDIR	= objs
 INCL	= -I includes
