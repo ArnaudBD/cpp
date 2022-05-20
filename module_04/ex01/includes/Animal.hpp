@@ -12,7 +12,6 @@ protected:
 	std::string _type;
 public:
 	Animal();
-	// ~Animal();
 	virtual ~Animal();
 	Animal( Animal const & );
 	Animal & operator=( Animal const & );
