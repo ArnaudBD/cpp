@@ -10,7 +10,7 @@ Dog::~Dog()
 	std::cout << "Destructor called for " << this->_type << std::endl; 
 }
 
-Dog::Dog( Dog const & copy )
+Dog::Dog( Dog const & copy ) : Animal()
 {
 	*this = copy;
 	return ;

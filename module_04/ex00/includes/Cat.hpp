@@ -8,7 +8,6 @@ private:
 	/* data */
 public:
 	Cat(/* args */);
-	// ~Cat();
 	virtual ~Cat();
 	Cat( Cat const & );
 	Cat & operator=( Cat const & );

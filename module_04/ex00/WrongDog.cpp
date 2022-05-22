@@ -10,7 +10,7 @@ WrongDog::~WrongDog()
 	std::cout << "Destructor called for " << this->_type << std::endl;
 }
 
-WrongDog::WrongDog( WrongDog const & copy )
+WrongDog::WrongDog( WrongDog const & copy ) : WrongAnimal()
 {
 	*this = copy;
 	return ;

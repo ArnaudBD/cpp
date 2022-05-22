@@ -9,12 +9,16 @@ const Animal* i = new Cat();
 delete j;//should not create a leak
 delete i;
 
+std::cout << "- - - - -" << std::endl;
+
 Dog deepCopy;
 std::cout << "deepCopy idea is " << deepCopy.showThought( 0 ) << std::endl;
 {
     Dog test = deepCopy;
     std::cout << "test idea is " << test.showThought( 0 ) << std::endl;
 }
+
+std::cout << "- - - - -" << std::endl;
 
 Animal *NoasArk[10];
 

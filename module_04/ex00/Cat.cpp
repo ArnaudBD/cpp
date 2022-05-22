@@ -10,7 +10,7 @@ Cat::~Cat()
 	std::cout << "Destructor called for " << this->_type << std::endl; 
 }
 
-Cat::Cat( Cat const & copy )
+Cat::Cat( Cat const & copy ) : Animal()
 {
 	*this = copy;
 	return ;
