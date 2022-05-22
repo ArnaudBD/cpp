@@ -1,4 +1,4 @@
-NAME 	= CPP_04_EX01
+NAME 	= CPP_04_EX02
 SRCS 	= 	main.cpp \
 			Animal.cpp \
 			Cat.cpp \
