@@ -11,10 +11,34 @@ public:
     Bureaucrat();
     ~Bureaucrat();
     Bureaucrat( Bureaucrat const & );
-    Bureaucrat & operator=( Bureaucrat const & )
+    Bureaucrat & operator=( Bureaucrat const & );
+    Bureaucrat & operator++( void );
 
     std::string const getName( void );
     int getGrade( void );
+
+
+
+    class GradeTooHighException : std::exception
+    {
+    private:
+        /* data */
+    public:
+        GradeTooHighException(/* args */);
+        ~GradeTooHighException();
+    };
+    class GradeTooLowException : std::exception
+    {
+    private:
+        /* data */
+    public:
+        GradeTooLowException(/* args */);
+        ~GradeTooLowException();
+    };
+
+    
 };
+
+std::ostream & operator<<(std::ostream & o, Bureaucrat const & );
 
 #endif
