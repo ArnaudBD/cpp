@@ -24,7 +24,7 @@ public:
     int getGrade( void ) const;
     void setGrade( int );
 
-    void signForm( Form );
+    void signForm( Form & );
 
 
 

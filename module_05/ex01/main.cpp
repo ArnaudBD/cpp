@@ -1,34 +1,57 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
 
-	Bureaucrat Machin( "Machin", 10 );
-	try
+	Bureaucrat Machin( "Machin", 5 );
+	Bureaucrat truc;
+	Form formulaire("Feuille d'inscription", 3, 2);
+	Form papier;
+
+	while (Machin.getGrade() != 1)
 	{
-		std::cout << Machin.getGrade() << std::endl;
-
-		Machin.setGrade( 5 );
-		std::cout << Machin.getGrade() << std::endl;
-
-		--Machin;
-		std::cout << Machin.getGrade() << std::endl;
-
-		for (int i = Machin.getGrade() ; i > 0 ; i--)
+		try
 		{
-			++Machin;
-			std::cout << Machin.getGrade() << std::endl;
+			std::cout 	<< Machin << std::endl
+						<< formulaire << std::endl;
+			Machin.signForm( formulaire );
+			std::cout << "______________________________________" << std::endl;
 		}
 
+		catch(const Bureaucrat::GradeTooHighException& e)
+		{
+			std::cerr << e.what() << std::endl;
+			std::cout << "______________________________________" << std::endl;
+		}
+		catch(const Bureaucrat::GradeTooLowException& e)
+		{
+			std::cerr << e.what() << std::endl;
+			std::cout << "______________________________________" << std::endl;
+		}
+		catch(const Form::GradeTooHighException& e)
+		{
+			std::cerr << e.what() << std::endl;
+			std::cout << "______________________________________" << std::endl;
+		}
+		catch(const Form::GradeTooLowException& e)
+		{
+			std::cerr << e.what() << std::endl;
+			std::cout << "______________________________________" << std::endl;
+		}
+		++Machin;
 	}
-	catch(const Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+
+	// try
+	// {
+	// 	Form paperasse("Dossier inportant", 300, 1);
+	// }
+	// catch(const Form::GradeTooHighException& e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// 	std::cout << "______________________________________" << std::endl;
+	// }
+
 
 	std::cout << Machin << std::endl;
 

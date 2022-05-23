@@ -90,10 +90,11 @@ std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs )
 	return (o);
 }
 
-// void Bureaucrat::signForm( Form form )
-// {
-// 	if (form.getIsSigned())
-// 		std::cout << this << " signed " << form << std::endl;
-// 	else
-// 		std::cout << this << " coudn't sign " << form << " because " << ;
-// }
+void Bureaucrat::signForm( Form & form )
+{
+	form.beSigned( *this );
+	if (form.getIsSigned())
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	else
+		std::cout << this->getName() << " coudn't sign " << form.getName() << " because his grade is " << this->getGrade() << std::endl;
+}

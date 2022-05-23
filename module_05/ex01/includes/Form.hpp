@@ -21,8 +21,8 @@ public:
 
 	std::string getName( void ) const;
 	bool getIsSigned( void ) const;
-	int getGradeToSign( void );
-	int getGradeToExec( void );
+	int getGradeToSign( void ) const;
+	int getGradeToExec( void ) const;
 	void beSigned ( Bureaucrat );
 
 	class GradeTooHighException : public std::exception
@@ -30,7 +30,7 @@ public:
     public:
         virtual const char* what() const throw()
         {
-            return ("Grade is too high");
+            return ("Form: Grade is too high");
         };
     };
 
@@ -39,7 +39,7 @@ public:
     public:
         virtual const char* what() const throw()
         {
-            return ("Grade is too low");
+            return ("Form: Grade is too low");
         };
     };
 };
