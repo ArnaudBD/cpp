@@ -2,7 +2,8 @@
 # define BUREAUCRAT_HPP
 # include <string>
 # include <iostream>
-
+# include "Form.hpp"
+class Form;
 
 class Bureaucrat
 {
@@ -22,6 +23,8 @@ public:
     std::string const getName( void ) const;
     int getGrade( void ) const;
     void setGrade( int );
+
+    void signForm( Form );
 
 
 

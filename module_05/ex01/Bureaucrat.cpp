@@ -1,4 +1,6 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+class Form;
 
 Bureaucrat::Bureaucrat() : _name("NoName")
 {
@@ -87,3 +89,11 @@ std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs )
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
 	return (o);
 }
+
+// void Bureaucrat::signForm( Form form )
+// {
+// 	if (form.getIsSigned())
+// 		std::cout << this << " signed " << form << std::endl;
+// 	else
+// 		std::cout << this << " coudn't sign " << form << " because " << ;
+// }

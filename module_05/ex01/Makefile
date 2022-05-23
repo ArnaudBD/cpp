@@ -1,6 +1,7 @@
-NAME 	= CPP_05_EX00
+NAME 	= CPP_05_EX01
 SRCS 	= 	main.cpp \
-			Bureaucrat.cpp
+			Bureaucrat.cpp \
+			Form.cpp
 OBJS 	= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 OBJDIR	= objs
 INCL	= -I includes
