@@ -1,16 +1,29 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
+	ShrubberyCreationForm formulaire( "Jardin" );
+	formulaire.beExecuted( "test" );
+std::cout << "1111111111111111111111111111111111111111111111111111111" << std::endl;
+	RobotomyRequestForm formulaire2( "Arnaud" );
+	formulaire2.beExecuted( "Arnaud" );
+std::cout << "2222222222222222222222222222222222222222222222222222222" << std::endl;
 
-	Bureaucrat Machin( "Machin", 5 );
+
+	Bureaucrat machin( "machin", 5 );
 	Bureaucrat truc;
 
-	while (Machin.getGrade() != 1)
+	while (machin.getGrade() != 1)
 	{
 		try
 		{
+			std::cout << machin << std::endl << formulaire << std::endl;
+			if (machin.getGrade() == 2)
+				machin.signForm( formulaire );
+			formulaire.execute(machin);
 		}
 
 		catch(const Bureaucrat::GradeTooHighException& e)
@@ -23,20 +36,25 @@ int main()
 			std::cerr << e.what() << std::endl;
 			std::cout << "______________________________________" << std::endl;
 		}
-		catch(const Form::GradeTooHighException& e)
+		catch(const ShrubberyCreationForm::GradeTooHighException& e)
 		{
 			std::cerr << e.what() << std::endl;
 			std::cout << "______________________________________" << std::endl;
 		}
-		catch(const Form::GradeTooLowException& e)
+		catch(const ShrubberyCreationForm::GradeTooLowException& e)
 		{
 			std::cerr << e.what() << std::endl;
 			std::cout << "______________________________________" << std::endl;
 		}
-		++Machin;
+		catch(const ShrubberyCreationForm::NotSignedException& e)
+		{
+			std::cerr << e.what() << std::endl;
+			std::cout << "______________________________________" << std::endl;
+		}
+		++machin;
 	}
 
-	std::cout << Machin << std::endl;
+	std::cout << machin << std::endl;
 
 	return (0);
 }

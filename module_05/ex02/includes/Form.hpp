@@ -6,14 +6,15 @@ class Bureaucrat;
 
 class Form
 {
-private:
+protected:
 	std::string const _name;
 	bool _isSigned;
 	int const _gradeToSign;
 	int const _gradeToExec;
 public:
 	Form();
-	// Form( std::string );
+	Form( std::string target );
+	Form( std::string, int, int );
 	~Form();
 	Form( Form const &);
 	Form & operator=( Form const &);
@@ -23,8 +24,9 @@ public:
 	bool getIsSigned( void ) const;
 	int getGradeToSign( void ) const;
 	int getGradeToExec( void ) const;
-	virtual void beSigned( Bureaucrat ) = 0;
+	virtual void beSigned( Bureaucrat & ) = 0;
 	virtual void beExecuted( std::string target ) = 0;
+	virtual void execute( Bureaucrat const & executor ) = 0;
 
 	class GradeTooHighException : public std::exception
     {
@@ -41,6 +43,15 @@ public:
         virtual const char* what() const throw()
         {
             return ("Form: Grade is too low");
+        };
+    };
+
+    class NotSignedException : public std::exception
+    {
+    public:
+        virtual const char* what() const throw()
+        {
+            return ("Form: Not signed");
         };
     };
 };
