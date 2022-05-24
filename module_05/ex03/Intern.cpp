@@ -18,3 +18,8 @@ Intern & Intern::operator=( Intern const & rhs )
 {
     return (*this);
 }
+
+Form* Intern::makeForm( std::string name, std::string target )
+{
+    
+}
