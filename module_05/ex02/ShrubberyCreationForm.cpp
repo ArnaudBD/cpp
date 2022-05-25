@@ -12,7 +12,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target) : Form(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target) : Form("ShrubberyCreationForm", 145, 137), _target(target)
 {
 }
 
