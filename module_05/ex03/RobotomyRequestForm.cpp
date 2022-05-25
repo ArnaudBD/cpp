@@ -37,7 +37,7 @@ void RobotomyRequestForm::beSigned( Bureaucrat & bureaucrat )
 		throw RobotomyRequestForm::GradeTooLowException();
 }
 
-void RobotomyRequestForm::beExecuted( std::string target )
+void RobotomyRequestForm::beExecuted( std::string target ) const
 {
 	std::cout << "vrrrrrrr" << std::endl;
 	std::cout << "VRRRRRRRRRRRRR" << std::endl;
@@ -49,7 +49,7 @@ void RobotomyRequestForm::beExecuted( std::string target )
 		std::cout << "Robotomy failed on " << target << std::endl;
 }
 
-void RobotomyRequestForm::execute( Bureaucrat const & executor )
+void RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 {
 	if (_isSigned == 0)
 		throw RobotomyRequestForm::NotSignedException();

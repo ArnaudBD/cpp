@@ -101,3 +101,8 @@ void Bureaucrat::signForm( Form & form )
 	else
 		std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade is " << this->getGrade() << std::endl;
 }
+
+void Bureaucrat::executeForm( Form const & form )
+{
+	form.execute( *this );
+}

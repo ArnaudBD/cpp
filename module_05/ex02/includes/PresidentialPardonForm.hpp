@@ -15,8 +15,8 @@ public:
 	PresidentialPardonForm( PresidentialPardonForm const & );
 	PresidentialPardonForm & operator=( PresidentialPardonForm const & );
 	void beSigned ( Bureaucrat & );
-	void beExecuted( std::string target );
-	virtual void execute( Bureaucrat const & executor );
+	void beExecuted( std::string target ) const;
+	virtual void execute( Bureaucrat const & executor ) const;
 };
 
 #endif

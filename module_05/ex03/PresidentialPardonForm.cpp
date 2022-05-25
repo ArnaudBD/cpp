@@ -37,12 +37,12 @@ void PresidentialPardonForm::beSigned( Bureaucrat & bureaucrat )
 		throw PresidentialPardonForm::GradeTooLowException();
 }
 
-void PresidentialPardonForm::beExecuted( std::string target )
+void PresidentialPardonForm::beExecuted( std::string target ) const
 {
 	std::cout << target << " was pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
-void PresidentialPardonForm::execute( Bureaucrat const & executor )
+void PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 {
 	if (_isSigned == 0)
 		throw PresidentialPardonForm::NotSignedException();

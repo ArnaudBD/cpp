@@ -15,8 +15,8 @@ public:
 	ShrubberyCreationForm( ShrubberyCreationForm const & );
 	ShrubberyCreationForm & operator=( ShrubberyCreationForm const & );
 	void beSigned ( Bureaucrat & );
-	void beExecuted( std::string target );
-	virtual void execute( Bureaucrat const & executor );
+	void beExecuted( std::string target ) const;
+	virtual void execute( Bureaucrat const & executor ) const;
 };
 
 #endif

@@ -2,7 +2,7 @@
 
 Form::Form() : _isSigned(0), _gradeToSign(20), _gradeToExec(10)
 {
-	if (this->getGradeToSign() >= 150 || this->getGradeToExec() >= 150)
+	if (this->getGradeToSign() > 150 || this->getGradeToExec() > 150)
 	{
 		throw Form::GradeTooHighException();
 	}
@@ -18,7 +18,7 @@ Form::~Form()
 
 Form::Form( std::string name, int const gradeToSign, int const gradeToExec ) : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
-	if (this->getGradeToSign() >= 150 || this->getGradeToExec() >= 150)
+	if (this->getGradeToSign() > 150 || this->getGradeToExec() > 150)
 	{
 		throw Form::GradeTooHighException();
 	}

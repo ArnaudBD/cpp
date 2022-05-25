@@ -35,7 +35,7 @@ void ShrubberyCreationForm::beSigned( Bureaucrat & bureaucrat )
 		throw ShrubberyCreationForm::GradeTooLowException();
 }
 
-void ShrubberyCreationForm::beExecuted( std::string target )
+void ShrubberyCreationForm::beExecuted( std::string target ) const
 {
 	std::string outfile = target + "_Shrubbery";
 	std::ofstream ofs (outfile.c_str());
@@ -57,7 +57,7 @@ void ShrubberyCreationForm::beExecuted( std::string target )
 	ofs.close();
 }
 
-void ShrubberyCreationForm::execute( Bureaucrat const & executor )
+void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 {
 	if (_isSigned == 0)
 		throw ShrubberyCreationForm::NotSignedException();

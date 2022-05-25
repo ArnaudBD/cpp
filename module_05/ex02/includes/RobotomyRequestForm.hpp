@@ -15,8 +15,8 @@ public:
 	RobotomyRequestForm( RobotomyRequestForm const & );
 	RobotomyRequestForm & operator=( RobotomyRequestForm const & );
 	void beSigned ( Bureaucrat & );
-	void beExecuted( std::string target );
-	virtual void execute( Bureaucrat const & executor );
+	void beExecuted( std::string target ) const;
+	virtual void execute( Bureaucrat const & executor ) const;
 };
 
 #endif
