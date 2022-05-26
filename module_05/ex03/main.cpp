@@ -13,9 +13,9 @@ int main()
 	Form* formulaire = guy.makeForm( "ShrubberyCreationForm", "Balcon");
 
 try{
-	formulaire->execute( AgentAdmin );
+	AgentAdmin.executeForm( "ShrubberyCreationForm" );
 }
-catch(const PresidentialPardonForm::NotSignedException& e){
+catch(const std::exception& e){
 			std::cerr << e.what() << std::endl;
 			std::cout << "______________________________________" << std::endl;
 }
@@ -23,7 +23,7 @@ try{
 	AgentAdmin.signForm( *formulaire );
 	formulaire->execute( AgentAdmin );
 }
-catch(const PresidentialPardonForm::NotSignedException& e){
+catch(const std::exception& e){
 			std::cerr << e.what() << std::endl;
 			std::cout << "______________________________________" << std::endl;
 }

@@ -6,9 +6,9 @@ Bureaucrat::Bureaucrat() : _name("NoName")
 {
 }
 
-Bureaucrat::Bureaucrat( std::string name ) : _name(name)
-{
-}
+// Bureaucrat::Bureaucrat( std::string name ) : _name(name)
+// {
+// }
 
 Bureaucrat::Bureaucrat( std::string name, int grade) : _name(name), _grade(grade)
 {
@@ -94,10 +94,17 @@ void Bureaucrat::signForm( Form & form )
 {
 	if (this->getGrade() <= form.getGradeToSign())
 		form.beSigned( *this );
-	else
-		throw Bureaucrat::GradeTooLowException();
 	if (form.getIsSigned())
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	else
-		std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade is " << this->getGrade() << std::endl;
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade is under " << form.getGradeToSign() << std::endl;
+}
+
+void Bureaucrat::executeForm( Form const & form )
+{
+	if (form.getIsSigned() && (this->getGrade() < form.getGradeToExec()))
+	{
+		form.execute( *this );
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
 }

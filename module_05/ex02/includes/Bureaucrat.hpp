@@ -10,9 +10,9 @@ class Bureaucrat
 private:
     std::string const _name;
     int _grade;
-public:
     Bureaucrat();
-    Bureaucrat( std::string );
+public:
+    // Bureaucrat( std::string );
     Bureaucrat( std::string, int );
     ~Bureaucrat();
     Bureaucrat( Bureaucrat const & );

@@ -16,7 +16,7 @@ Form::~Form()
 {
 }
 
-Form::Form( std::string name, int gradeToSign, int gradeToExec) : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+Form::Form( std::string name, int gradeToSign, int gradeToExec) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
 	if (this->getGradeToSign() > 150 || this->getGradeToExec() > 150)
 	{

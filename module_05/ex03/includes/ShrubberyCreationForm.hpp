@@ -17,6 +17,7 @@ public:
 	void beSigned ( Bureaucrat & );
 	void beExecuted( std::string target ) const;
 	virtual void execute( Bureaucrat const & executor ) const;
+	std::string getTarget( void ) const;
 };
 
 #endif

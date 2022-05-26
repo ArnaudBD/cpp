@@ -21,6 +21,7 @@ public:
 
 
 	std::string getName( void ) const;
+    std::string getTarget( void ) const;
 	bool getIsSigned( void ) const;
 	int getGradeToSign( void ) const;
 	int getGradeToExec( void ) const;
