@@ -63,5 +63,20 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 		throw ShrubberyCreationForm::NotSignedException();
 	if (executor.getGrade() > this->getGradeToExec())
 		throw ShrubberyCreationForm::GradeTooLowException();
-	this->beExecuted( _name );
+	this->beExecuted( _target );
 }
+
+std::string ShrubberyCreationForm::getTarget( void ) const
+{
+	return this->_target;
+}
+
+// std::ostream & operator<<( std::ostream & o , Form const & rhs )
+// {
+// 	o	<< "\t- Name: " << rhs.getName() << std::endl
+// 		<< "\t- Signed: " << (rhs.getIsSigned() ? "yes" : "no") << std::endl
+// 		<< "\t- Grade to sign: " << rhs.getGradeToSign() << std::endl
+// 		<< "\t- Grade to execute: " << rhs.getGradeToExec() << std::endl
+// 		<< "\t- Target: " << rhs.getTarget() << std::endl;
+// 	return (o);
+// }

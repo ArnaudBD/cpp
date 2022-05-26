@@ -48,5 +48,20 @@ void PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 		throw PresidentialPardonForm::NotSignedException();
 	if (executor.getGrade() > this->getGradeToExec())
 		throw PresidentialPardonForm::GradeTooLowException();
-	this->beExecuted( _name );
+	this->beExecuted( _target );
 }
+
+std::string PresidentialPardonForm::getTarget( void ) const
+{
+	return this->_target;
+}
+
+// std::ostream & operator<<( std::ostream & o , Form const & rhs )
+// {
+// 	o	<< "\t- Name: " << rhs.getName() << std::endl
+// 		<< "\t- Signed: " << (rhs.getIsSigned() ? "yes" : "no") << std::endl
+// 		<< "\t- Grade to sign: " << rhs.getGradeToSign() << std::endl
+// 		<< "\t- Grade to execute: " << rhs.getGradeToExec() << std::endl
+// 		<< "\t- Target: " << rhs.getTarget() << std::endl;
+// 	return (o);
+// }

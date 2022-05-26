@@ -8,10 +8,12 @@ int main()
 {
 
 	try {
-		
+		Bureaucrat bidule("Bidule", 15 );
+		std::cout << bidule << std::endl;
 		ShrubberyCreationForm formulaire( "Jardin2petunia" );
 		std::cout << formulaire << std::endl;
-		formulaire.beExecuted( "test" );
+		// bidule.signForm( formulaire );
+		bidule.executeForm( formulaire );
 		std::cout << "1111111111111111111111111111111111111111111111111111111" << std::endl;
 		RobotomyRequestForm formulaire2( "Arnaud" );
 		std::cout << formulaire2 << std::endl;
@@ -22,57 +24,7 @@ int main()
 		formulaire3.beExecuted( "Damien" );
 		std::cout << "3333333333333333333333333333333333333333333333333333333" << std::endl;
 	}
-		catch(const Bureaucrat::GradeTooHighException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const Bureaucrat::GradeTooLowException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const ShrubberyCreationForm::GradeTooHighException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const ShrubberyCreationForm::GradeTooLowException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const ShrubberyCreationForm::NotSignedException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const RobotomyRequestForm::GradeTooHighException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const RobotomyRequestForm::GradeTooLowException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const RobotomyRequestForm::NotSignedException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const PresidentialPardonForm::GradeTooHighException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const PresidentialPardonForm::GradeTooLowException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const PresidentialPardonForm::NotSignedException& e)
+		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 			std::cout << "______________________________________" << std::endl;
@@ -82,7 +34,7 @@ int main()
 std::cout << "===========================================================================" << std::endl;
 
 	Bureaucrat machin( "machin", 5 );
-	Bureaucrat truc;
+	Bureaucrat truc ("Truc", 14 );
 	PresidentialPardonForm formulaire( "petitPapier" );
 	while (machin.getGrade() != 1)
 	{
@@ -94,27 +46,7 @@ std::cout << "==================================================================
 			formulaire.execute(machin);
 		}
 
-		catch(const Bureaucrat::GradeTooHighException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const Bureaucrat::GradeTooLowException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const PresidentialPardonForm::GradeTooHighException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const PresidentialPardonForm::GradeTooLowException& e)
-		{
-			std::cerr << e.what() << std::endl;
-			std::cout << "______________________________________" << std::endl;
-		}
-		catch(const PresidentialPardonForm::NotSignedException& e)
+		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 			std::cout << "______________________________________" << std::endl;

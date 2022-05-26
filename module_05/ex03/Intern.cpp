@@ -46,6 +46,7 @@ Form* Intern::makeForm( std::string name, std::string target )
     {
         if (nameList[i] == name)
         {
+            std::cout << "Intern creates " << name << std::endl;
             Form* (Intern::*theOne)( std::string ) = functionList[i];
             return (this->*theOne)(target);
         }
