@@ -4,17 +4,28 @@
 #include <cctype>
 #include <string>
 #include <iomanip>
+#include <limits>
 
 std::string define_av( const char *av)
 {
 	int count_dot = 0;
 	int count_f = 0;
 	std::string str_av = std::string(av);
-	for (size_t i = 0 ; av[i] && (isdigit(av[i]) || av[i] == '.' || (i != 0 && av[i] == 'f')) ; i++)
+	for (size_t i = 0 ; av[i] && (isdigit(av[i]) || av[i] == '.' || (i != 0 && av[i] == 'f') || av[0] == '+' || av[0] == '-') ; i++)
 	{
 			
 		if (av[i] == '.')
 			count_dot++;
+		if (av[i] == 'f')
+		{
+			if (i == 0)
+			{
+				if (av[i + 1])
+					return "other";
+				return "float";
+			}
+			count_f++;
+		}
 		if (count_dot > 1 || count_f > 1)
 			return "other";
 		if (i == (str_av.length() - 1))
@@ -24,12 +35,6 @@ std::string define_av( const char *av)
 			if (count_dot)
 				return "double";
 			return "int";
-		}
-		if (av[i] == 'f')
-		{
-			if (i == 0 && av[i + 1])
-				return "other";
-			count_f++;
 		}
 	}
 	if (isprint(av[0]) && !av[1] && !isdigit(av[0]))
@@ -46,19 +51,41 @@ int main(int ac, char* av[])
 	}
 	std::string str_av = std::string(av[1]);
 	std::string type = define_av(av[1]);
-
-	std::cout << "The type is: " << type << std::endl;
-
-	if (type != "char" && type != "other")
+	if (str_av == "nan" || str_av == "nanf")
+	{
+		type = "not a number";
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << std::numeric_limits<float>::quiet_NaN() << "f" << std::endl;
+		std::cout << "double: " << std::numeric_limits<double>::quiet_NaN() << std::endl;
+	}
+	else if (str_av == "+inf" || str_av == "+inff" || str_av == "-inf" || str_av == "-inff")
+	{
+		type = "limit";
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << ((av[1][0] == '-') ? "-" : "+" ) << std::numeric_limits<float>::infinity() << "f" << std::endl;
+		std::cout << "double: " << ((av[1][0] == '-') ? "-" : "+" ) << std::numeric_limits<double>::infinity() << std::endl;
+	}
+	else if (type == "other")
+	{
+		std::cerr << "Error: this is not a double, a float, an int nor a char" << std::endl;
+		return (2);
+	}
+	else if (type != "char" && type != "other")
 	{
 		double	d_num = static_cast<double>(std::atof(av[1]));
 		float	f_num = d_num;
 		int		i_num = static_cast<int>(f_num);
 		char	c_num = static_cast<char>(i_num);
-		std::cout << "char: " << ((isprint(c_num)) ? c_num + "" : "Non diplayable") << std::endl;
+		
+		if (isprint(c_num))
+			std::cout << "char: " << "'" << c_num << "'" << std::endl;
+		else
+			std::cout << "char: " << "Non displayable" << std::endl;
 		std::cout << "int: " << i_num << std::endl;
-		std::cout << "float: " << f_num << ((str_av.find(".")) ? ".00" : "") << "f" << std::endl;
-		std::cout << "double: " << d_num << ((str_av.find(".")) ? ".00" : "") << std::endl;
+		std::cout << "float: " << f_num << ((str_av.find('.') == std::string::npos) ? ".00f" : "f") << std::endl;
+		std::cout << "double: " << d_num << ((str_av.find(".") == std::string::npos) ? ".00" : "") << std::endl;
 	}
 	else if (type == "char")
 	{
@@ -67,9 +94,8 @@ int main(int ac, char* av[])
 		int		i_num = static_cast<int>(f_num);
 		std::cout << "char: " << av[1] << std::endl;
 		std::cout << "int: " << i_num << std::endl;
-		std::cout << "float: " << f_num << "f" << std::endl;
-		std::cout << "double: " << d_num << std::endl;
+		std::cout << "float: " << f_num << ".00f" << std::endl;
+		std::cout << "double: " << d_num << ".00" << std::endl;
 	}
-
 	return (0);
 }
