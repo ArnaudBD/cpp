@@ -83,9 +83,14 @@ int main(int ac, char* av[])
 			std::cout << "char: " << "'" << c_num << "'" << std::endl;
 		else
 			std::cout << "char: " << "Non displayable" << std::endl;
-		std::cout << "int: " << i_num << std::endl;
-		std::cout << "float: " << f_num << ((str_av.find('.') == std::string::npos) ? ".00f" : "f") << std::endl;
-		std::cout << "double: " << d_num << ((str_av.find(".") == std::string::npos) ? ".00" : "") << std::endl;
+		if (d_num > std::numeric_limits<int>::max() || d_num < std::numeric_limits<int>::min())
+			std::cout << "int: overflow" << std::endl;
+		else
+			std::cout << "int: " << i_num << std::endl;
+		std::cout << "float: " << std::fixed << f_num << "f" << std::endl;
+		std::cout << "double: " << std::fixed << d_num << std::endl;
+		// std::cout << "float: " << f_num << ((str_av.find('.') == std::string::npos) ? ".00f" : "f") << std::endl;
+		// std::cout << "double: " << d_num << ((str_av.find(".") == std::string::npos) ? ".00" : "") << std::endl;
 	}
 	else if (type == "char")
 	{
@@ -97,5 +102,6 @@ int main(int ac, char* av[])
 		std::cout << "float: " << f_num << ".00f" << std::endl;
 		std::cout << "double: " << d_num << ".00" << std::endl;
 	}
+	std::cout << "type: " << type << std::endl;
 	return (0);
 }

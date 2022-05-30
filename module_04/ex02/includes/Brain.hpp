@@ -7,7 +7,7 @@ class Brain
 private:
 	std::string _ideas[100];
 public:
-	Brain(/* args */);
+	Brain();
 	virtual ~Brain();
 	Brain( Brain const & );
 	Brain & operator=( Brain const & );
