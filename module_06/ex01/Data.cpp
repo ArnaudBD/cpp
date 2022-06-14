@@ -8,12 +8,12 @@ Data::~Data()
 {
 }
 
-uintptr_t seralize(Data* ptr)
+uintptr_t serialize( Data* ptr )
 {
-
+    return ( reinterpret_cast<uintptr_t>(ptr) );
 }
 
-Data* deseralize( uniptr_t raw )
+Data* deserialize( uintptr_t raw )
 {
-
+    return ( reinterpret_cast<Data *>(raw) );
 }
