@@ -2,7 +2,7 @@ NAME 	= convert
 SRCS 	= 	main.cpp
 OBJS 	= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 OBJDIR	= objs
-INCL	= -I includes
+#INCL	= -I includes
 CC		= c++
 CFLAGS	= -Wall -Werror -Wextra -g3 -std=c++98 #-fsanitize=address
 RM		= rm -f

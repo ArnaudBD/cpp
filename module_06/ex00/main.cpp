@@ -42,6 +42,17 @@ std::string define_av( const char *av)
 	return "other";
 }
 
+size_t	findPrecision(const char *av)
+{
+	std::string str_av = std::string(av);
+	std::string dot(".");
+
+	std::size_t found = str_av.find(dot);
+	if (found == std::string::npos)
+		return (0);
+	return (str_av.length() - found - 1);
+}
+
 int main(int ac, char* av[])
 {
 	if (ac != 2)
@@ -51,6 +62,7 @@ int main(int ac, char* av[])
 	}
 	std::string str_av = std::string(av[1]);
 	std::string type = define_av(av[1]);
+	size_t		p = findPrecision(av[1]);
 	if (str_av == "nan" || str_av == "nanf")
 	{
 		type = "not a number";
@@ -87,8 +99,8 @@ int main(int ac, char* av[])
 			std::cout << "int: overflow" << std::endl;
 		else
 			std::cout << "int: " << i_num << std::endl;
-		std::cout << "float: " << std::fixed << f_num << "f" << std::endl;
-		std::cout << "double: " << std::fixed << d_num << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(p) << f_num << ((p == 0) ? ".0f" : "f") << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(p) << d_num << ((p == 0) ? ".0" : "") << std::endl;
 		// std::cout << "float: " << f_num << ((str_av.find('.') == std::string::npos) ? ".00f" : "f") << std::endl;
 		// std::cout << "double: " << d_num << ((str_av.find(".") == std::string::npos) ? ".00" : "") << std::endl;
 	}
@@ -99,8 +111,8 @@ int main(int ac, char* av[])
 		int		i_num = static_cast<int>(f_num);
 		std::cout << "char: " << av[1] << std::endl;
 		std::cout << "int: " << i_num << std::endl;
-		std::cout << "float: " << f_num << ".00f" << std::endl;
-		std::cout << "double: " << d_num << ".00" << std::endl;
+		std::cout << "float: " << f_num << ".0f" << std::endl;
+		std::cout << "double: " << d_num << ".0" << std::endl;
 	}
 	std::cout << "type: " << type << std::endl;
 	return (0);
