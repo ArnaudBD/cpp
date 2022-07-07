@@ -63,6 +63,8 @@ int main(int ac, char* av[])
 	std::string str_av = std::string(av[1]);
 	std::string type = define_av(av[1]);
 	size_t		p = findPrecision(av[1]);
+	if (type == "float")
+		p -= 1;
 	if (str_av == "nan" || str_av == "nanf")
 	{
 		type = "not a number";
