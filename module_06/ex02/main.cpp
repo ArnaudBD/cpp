@@ -43,21 +43,26 @@ void identify( Base* p )
 
 void identify( Base& p )
 {
+    A   testA;
+    B   testB;
+    C   testC;
     try
     {
-        dynamic_cast<A&>(p);
+        testA = dynamic_cast<A&>(p);
         std::cout << "Base reference identified as A" << std::endl;
+    
     }
     catch( std::bad_cast &bc) {}
     try
     {
-        dynamic_cast<B&>(p);
+        testB = dynamic_cast<B&>(p);
         std::cout << "Base reference identified as B" << std::endl;
+        
     }
     catch( std::bad_cast &bc) {}
     try
     {
-        dynamic_cast<C&>(p);
+        testC = dynamic_cast<C&>(p);
         std::cout << "Base reference identified as C" << std::endl;
     }
     catch( std::bad_cast &bc) {}
