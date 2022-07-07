@@ -4,7 +4,7 @@ OBJS 	= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 OBJDIR	= objs
 INCL	= -I includes
 CC		= c++
-CFLAGS	= -Wall -Werror -Wextra -g3 -std=c++98 #-fsanitize=address
+CFLAGS	= -Wall -Werror -Wextra -g3 -std=c++98 -fsanitize=address
 RM		= rm -f
 $(OBJDIR)/%.o: %.cpp
 	$(CC) $(CFLAGS) $(INCL) -c $< -o $@

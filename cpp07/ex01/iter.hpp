@@ -9,8 +9,6 @@ void    iter( T *tab, int tabSize, void (*function)(const T &) )
 {
     for (int i = 0; i < tabSize; i++)
     {
-std::cout << i << std::endl;
-
         function(tab[i]);
     }
 }
