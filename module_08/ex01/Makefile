@@ -1,5 +1,6 @@
-NAME 	= easyfind
-SRCS 	= 	main.cpp
+NAME 	= span
+SRCS 	= 	main.cpp \
+			Span.cpp
 OBJS 	= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 OBJDIR	= objs
 INCL	= -I includes

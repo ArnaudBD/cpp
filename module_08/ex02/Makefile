@@ -1,4 +1,4 @@
-NAME 	= easyfind
+NAME 	= MutantStack
 SRCS 	= 	main.cpp
 OBJS 	= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 OBJDIR	= objs

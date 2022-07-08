@@ -4,9 +4,12 @@
 # include <vector>
 
 template <typename T>
-void    easyfind( T haystack, int needle )
+typename T::iterator    easyfind( T &haystack, int needle )
 {
-    std::vector<int>    v(40, 2);
+    typename T::iterator it = std::find(haystack.begin(), haystack.end(), needle);
+    if (it == haystack.end())
+        throw std::exception();
+    return (it);
 }
 
 #endif
