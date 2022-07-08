@@ -7,8 +7,6 @@
 template< typename T, typename Container = std::deque<T> > 
 class MutantStack : public std::stack<T, Container>
 {
-private:
-    /* data */
 public:
     typedef typename std::stack<T>::container_type::iterator iterator;
     typedef typename std::stack<T>::container_type::const_iterator const_iterator;
@@ -30,17 +28,5 @@ public:
         return this->c.end();
     }
 
-    // MutantStack(/* args */);
-    // ~MutantStack();
 };
-
-// MutantStack::MutantStack(/* args */)
-// {
-// }
-
-// MutantStack::~MutantStack()
-// {
-// }
-
-
 #endif

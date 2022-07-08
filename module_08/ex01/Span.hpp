@@ -17,9 +17,10 @@ public:
     Span & operator=( Span const & );
 
     void addNumber( int );
+    void addRange( std::vector<int>::iterator begin, std::vector<int>::iterator end );
     size_t shortestSpan( void );
     size_t longestSpan( void );
-
+    void display();
 
 };
 

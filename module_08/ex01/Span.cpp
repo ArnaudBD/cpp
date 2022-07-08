@@ -1,5 +1,6 @@
 #include "Span.hpp"
 #include <numeric>
+#include <iostream>
 
 Span::Span()
 {
@@ -34,6 +35,13 @@ void Span::addNumber( int n )
         throw std::exception();
 }
 
+void Span::addRange( std::vector<int>::iterator begin, std::vector<int>::iterator end )
+{
+    if (std::distance(begin, end) + this->_v.size() > this->_max)
+        throw std::exception();
+    this->_v.insert(this->_v.end(), begin, end );
+}
+
 size_t Span::shortestSpan( void )
 {
     std::vector<int> v = this->_v;
@@ -51,4 +59,12 @@ size_t Span::longestSpan( void )
     std::sort(v.begin(), v.end());
     return (*(v.end() - 1) - *v.begin());
 
+}
+
+void Span::display( void )
+{
+    for (size_t i = 0; i < this->_v.size(); i++)
+    {
+        std::cout << (this->_v[i]) << std::endl;
+    }
 }
