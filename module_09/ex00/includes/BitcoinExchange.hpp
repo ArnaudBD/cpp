@@ -8,24 +8,20 @@
 class BitcoinExchange
 {
 private:
-	std::multimap<std::string, double> _amounts;
-	std::map<std::string, double> _values;
+	std::multimap<std::string, double> _input;
+	std::map<std::string, double> _data;
 
 	BitcoinExchange();
 
 public:
-	BitcoinExchange(std::istream & values, std::istream & amounts);
+	BitcoinExchange(std::ifstream & );
 	BitcoinExchange & operator=(const BitcoinExchange& other);
 	BitcoinExchange(const BitcoinExchange& other);
 
 	~BitcoinExchange();
 
-	std::multimap<std::string, double> getAmounts(stre) const;
-	std::map<std::string, double> getValues() const;
 
-	void addAmount(std::string date, double amount);
-	void addValue(std::string date, double value);
-	void printReport(std::multimap<std::string, double> amounts, std::map<std::string, double> values);
+	void printReport();
 
 };
 

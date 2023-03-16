@@ -1,32 +1,17 @@
-// #include "BitcoinExchange.hpp"
+#include "BitcoinExchange.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <map>
 #include <sstream>
 
-int main()
+int main(int ac, const char *av[])
 {
-	std::ifstream values("input.txt");
-	std::ifstream amounts("BTC-USD.csv");
-
-	std::multimap<std::string, double> amountsMap;
-
-int i = 0;
-	while (i < 20) //!amounts.eof())
+	if (ac != 2)
 	{
-		i++;
-		std::string date;
-		double value;
-
-		std::getline(values, date, '|');
-
-		amountsMap.insert(std::pair<std::string, double>(date, value));
+		std::cout << "Usage: ./btc [file]" << std::endl;
+		return 1;
 	}
-
-	for (std::multimap<std::string, double>::reverse_iterator it = amountsMap.rbegin(); it != amountsMap.rend(); ++it)
-	{
-		std::cout << "date: " << it->first << " " << "amount: " << it->second << std::endl;
-	}
-
+	BitcoinExchange exchange(std::ifstream(av[1]));
+	exchange.printReport();
 }
