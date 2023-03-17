@@ -88,9 +88,8 @@ public:
 		} else if (strstr(type.c_str(), "deque")) {
 			type = "deque";
 		}
-		double(time) = double(_end - _start) / (double(CLOCKS_PER_SEC) / 1000000.00);
+		float(time) = float(_end - _start) / (float(CLOCKS_PER_SEC) / 1000000.00);
 		std::cout << "Time to process a range of " << _container.size() << " elements with std::" << type << " : " << time << " us" << std::endl;
-		std::cout << "clocks per sec: " << CLOCKS_PER_SEC << std::endl;
 	}
 
 	Container getContainer() {

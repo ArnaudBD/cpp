@@ -6,9 +6,9 @@ int main(int ac, char *av[]) {
 		return 0;
 	}
 	try {
-		std::cout << "Before: ";
 
 		PmergeMe<std::list<int> > list(ac, av);
+		std::cout << "Before: ";
 		list.printContainer();
 		list.setStart();
 		list.setContainer(list.mergeInsertSort(list.getContainer()));

@@ -1,7 +1,6 @@
 NAME 	= RPN
 SRCS 	= 	main.cpp \
 			RPN.cpp
-
 OBJS 	= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 OBJDIR	= objs
 INCL	= -I includes

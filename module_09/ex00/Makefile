@@ -1,5 +1,7 @@
 NAME 	= btc
-SRCS 	= 	main.cpp
+SRCS 	= 	main.cpp \
+			BitcoinExchange.cpp \
+
 OBJS 	= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 OBJDIR	= objs
 INCL	= -I includes
